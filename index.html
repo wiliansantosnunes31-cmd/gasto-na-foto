@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="description"
+        content="Registre seus gastos fotografando comprovantes."
+    >
+
+    <title>Gasto na Foto</title>
+
+    <link rel="preconnect" href="[fonts.googleapis.com](https://fonts.googleapis.com)">
+    <link rel="preconnect" href="[fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin>
+    <link
+        href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap)"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="cabecalho">
+        <a href="#" class="marca" aria-label="Página inicial">
+            <span class="marca-icone">📸</span>
+            <span>Gasto na Foto</span>
+        </a>
+
+        <button
+            type="button"
+            class="botao-icone"
+            id="alternarTema"
+            aria-label="Alternar tema"
+            title="Alternar tema"
+        >
+            ☀️
+        </button>
+    </header>
+
+    <main class="container">
+        <section class="apresentacao">
+            <span class="selo">Controle financeiro simplificado</span>
+
+            <h1>Fotografe o comprovante.<br>
+                <strong>A gente organiza.</strong>
+            </h1>
+
+            <p>
+                Registre suas despesas em poucos segundos e acompanhe
+                quanto você gastou.
+            </p>
+        </section>
+<article class="cartao">
+    <span class="cartao-icone">🍔</span>
+
+    <div>
+        <p>Alimentação</p>
+        <strong id="totalAlimentacao">R$ 0,00</strong>
+    </div>
+</article>
+        <section class="resumo" aria-label="Resumo dos gastos">
+            <article class="cartao destaque">
+                <div>
+                    <span class="cartao-icone">💰</span>
+                    <p>Total gasto</p>
+                    <strong id="totalGasto">R$ 0,00</strong>
+                </div>
+
+                <span class="indicador">Atualizado</span>
+            </article>
+
+            <article class="cartao">
+                <span class="cartao-icone azul">🧾</span>
+
+                <div>
+                    <p>Comprovantes lidos</p>
+                    <strong id="totalComprovantes">0</strong>
+                </div>
+            </article>
+
+            <article class="cartao">
+                <span class="cartao-icone roxo">📊</span>
+
+                <div>
+                    <p>Média por comprovante</p>
+                    <strong id="mediaGastos">R$ 0,00</strong>
+                </div>
+            </article>
+        </section>
+
+        <section class="area-envio">
+            <div
+                class="upload"
+                id="areaUpload"
+                role="button"
+                tabindex="0"
+                aria-label="Selecionar fotografia do comprovante"
+            >
+                <input
+                    type="file"
+                    id="arquivo"
+                    accept="image/*"
+                    capture="environment"
+                    hidden
+                >
+
+                <div class="upload-icone">📷</div>
+
+                <h2>Envie seu comprovante</h2>
+
+                <p>
+                    Tire uma foto ou selecione uma imagem da galeria.
+                </p>
+
+                <button type="button" class="botao-principal" id="selecionarFoto">
+                    Fotografar comprovante
+                </button>
+
+                <small>Formatos aceitos: JPG, PNG e WEBP</small>
+            </div>
+
+            <div class="previsualizacao" id="previsualizacao" hidden>
+                <img id="imagemComprovante" alt="Prévia do comprovante">
+
+                <div class="dados-comprovante">
+                    <span class="selo">Novo lançamento</span>
+                    <h2>Confirme os dados</h2>
+
+                    <label for="descricao">Descrição</label>
+                    <input
+                        type="text"
+                        id="descricao"
+                        placeholder="Ex.: Supermercado"
+                        maxlength="50"
+                    >
+<label for="categoria">Categoria</label>
+
+<select id="categoria">
+    <option value="Alimentação">🍔 Alimentação</option>
+    <option value="Transporte">🚗 Transporte</option>
+    <option value="Casa">🏠 Casa</option>
+    <option value="Lazer">🎮 Lazer</option>
+    <option value="Saúde">💊 Saúde</option>
+    <option value="Educação">📚 Educação</option>
+    <option value="Outros">📦 Outros</option>
+</select>
+                    <label for="valor">Valor do comprovante</label>
+                    <div class="campo-valor">
+                        <span>R$</span>
+                        <input
+                            type="text"
+                            id="valor"
+                            inputmode="decimal"
+                            placeholder="0,00"
+                            autocomplete="off"
+                        >
+                    </div>
+
+                    <div class="acoes">
+                        <button type="button" class="botao-secundario" id="cancelar">
+                            Cancelar
+                        </button>
+
+                        <button type="button" class="botao-principal" id="salvar">
+                            Salvar gasto
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="historico">
+            <div class="titulo-secao">
+                <div>
+                    <span class="selo">Histórico</span>
+                    <h2>Últimos comprovantes</h2>
+                </div>
+
+                <button type="button" class="botao-texto" id="limparTudo">
+                    Limpar tudo
+                </button>
+            </div>
+ 
+            <div class="filtro-categoria">
+    <label for="filtroCategoria">Filtrar por categoria</label>
+
+    <select id="filtroCategoria">
+        <option value="Todas">📋 Todas</option>
+        <option value="Alimentação">🍔 Alimentação</option>
+        <option value="Transporte">🚗 Transporte</option>
+        <option value="Casa">🏠 Casa</option>
+        <option value="Lazer">🎮 Lazer</option>
+        <option value="Saúde">💊 Saúde</option>
+        <option value="Educação">📚 Educação</option>
+        <option value="Outros">📦 Outros</option>
+    </select>
+</div>
+            <div class="lista" id="listaComprovantes"></div>
+
+            <div class="estado-vazio" id="estadoVazio">
+                <div>🧾</div>
+                <h3>Nenhum comprovante ainda</h3>
+                <p>Seus lançamentos aparecerão aqui.</p>
+            </div>
+        </section>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <footer>
+        <p>Gasto na Foto - seus gastos organizados em um clique.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
