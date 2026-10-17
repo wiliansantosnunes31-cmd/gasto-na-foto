@@ -1,3 +1,5 @@
+alert("JavaScript carregou!");
+
 const elementos = {
     arquivo: document.querySelector("#arquivo"),
     areaUpload: document.querySelector("#areaUpload"),
